@@ -47,7 +47,25 @@ def astar(graph, heuristic, start, goal):
             came_from[neighbor] = current_node
             open_list.append((neighbor, new_cost))
 
-return None, float('inf')
+    return None, float('inf')
 
+# --Main Program--
+if __name__ == "__main__":
+    print("=== A* Algorithm Input Setup ===\n")
+    graph , heuristic = get_user_inputs()
+    
+    print("\n---Path Finding---")
+    start = input("Enter start node: ").strip().upper()
+    goal = input("Enter goal node: ").strip().upper()
+    
+    path, cost = astar(graph, heuristic, start, goal)
+    
+    print("\n=== Result ===")
+    if path:
+        print("shortest path:", "->".join(path))
+        print("Total path cost:", cost)
+    else:
+        print("path not found")
+        
         
             
